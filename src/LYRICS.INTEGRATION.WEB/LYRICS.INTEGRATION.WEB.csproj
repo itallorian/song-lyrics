@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LYRICS.INTEGRATION.BUSINESSLOGIC\LYRICS.INTEGRATION.BUSINESSLOGIC.csproj" />
+    <ProjectReference Include="..\LYRICS.INTEGRATION.DOMAIN\LYRICS.INTEGRATION.DOMAIN.csproj" />
+  </ItemGroup>
+
+</Project>
