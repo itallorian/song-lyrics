@@ -55,7 +55,7 @@ namespace LYRICS.INTEGRATION.TEST.Services.Integration
             Assert.False(result > 0);
         }
 
-        #region [ Add Lyric Search ]
+        #endregion [ Add Lyric Search ]
 
         #region [ Aux ]
 
