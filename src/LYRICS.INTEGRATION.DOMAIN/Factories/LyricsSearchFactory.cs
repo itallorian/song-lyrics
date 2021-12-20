@@ -50,7 +50,7 @@ namespace LYRICS.INTEGRATION.DOMAIN.Factories
             }
         }
 
-        private LyricsSearch ParseLyricSearch(SearchRequest request, SearchResponse response)
+        public LyricsSearch ParseLyricSearch(SearchRequest request, SearchResponse response)
         {
             bool valid = string.IsNullOrEmpty(response.Lyrics) == false;
 
