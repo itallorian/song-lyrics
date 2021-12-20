@@ -9,5 +9,7 @@ namespace LYRICS.INTEGRATION.BUSINESSLOGIC.Models.LyricsOvh
 
         [JsonProperty("error")]
         public string Error { get; set; } = string.Empty;
+
+        public string SearchUrl { get; set; } = string.Empty;
     }
 }

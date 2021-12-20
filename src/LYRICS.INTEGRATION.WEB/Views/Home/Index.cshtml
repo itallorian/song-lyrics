@@ -6,7 +6,7 @@
 <div class="box">
     @if (Model?.SearchReponse != null && string.IsNullOrEmpty(Model.SearchReponse.Lyrics) == false)
     {
-        <h2>@Model.Title, @Model.Author</h2>
+        <h2><a href="@Model.SearchReponse.SearchUrl">@Model.Title, @Model.Author</a></h2>
         <p>
             @Model.SearchReponse.Lyrics
         </p>

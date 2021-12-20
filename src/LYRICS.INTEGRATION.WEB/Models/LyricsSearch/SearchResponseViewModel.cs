@@ -7,5 +7,7 @@
         public string Lyrics { get; set; } = string.Empty;
 
         public string Error { get; set; } = string.Empty;
+
+        public string SearchUrl { get; set; } = string.Empty;
     }
 }

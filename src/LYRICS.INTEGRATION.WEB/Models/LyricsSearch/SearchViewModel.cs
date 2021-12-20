@@ -28,7 +28,8 @@ namespace LYRICS.INTEGRATION.WEB.Models.LyricsSearch
             SearchReponse = new SearchResponseViewModel()
             {
                 Lyrics = response.Lyrics,
-                Error = response.Error
+                Error = response.Error,
+                SearchUrl = response.SearchUrl
             };
         }
         #endregion [ PARSES ]
