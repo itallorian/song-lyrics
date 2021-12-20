@@ -11,13 +11,25 @@ ol, ul {
     padding-left: 0;
 }
 
+h2 {
+    position: relative;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
 body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    background: #ede7f6;
+    background: #fff;
+}
+
+.box {
+    position: relative;
+    margin: 10% 0;
+    width: 100%;
 }
 
 footer {
@@ -47,25 +59,22 @@ footer {
             }
 
         footer .container h2 {
-            position: relative;
             color: #fff;
-            font-weight: 500;
-            margin-bottom: 15px;
         }
 
-            footer .container h2:before {
-                content: '';
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                width: 50px;
-                height: 2px;
-                background: #f00;
-            }
+h2:before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
 
-    footer p {
-        color: #999;
-    }
+footer p {
+    color: #999;
+}
 
 .sci {
     margin-top: 20px;

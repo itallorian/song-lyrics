@@ -3,31 +3,35 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-@if (Model?.SearchReponse != null && string.IsNullOrEmpty(Model.SearchReponse.Lyrics) == false)
-{
-    <p>
-        @Model.SearchReponse.Lyrics
-    </p>
-}
-else
-{
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<div class="box">
+    @if (Model?.SearchReponse != null && string.IsNullOrEmpty(Model.SearchReponse.Lyrics) == false)
     {
-        @Html.ValidationSummary(true)
-        <div class="mb-3">
-            <label class="form-label">Author</label>
-            <input asp-for="Author" type="text" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Title</label>
-            <input asp-for="Title" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Search</button>
-    }
+        <h2>@Model.Title, @Model.Author</h2>
+        <p>
+            @Model.SearchReponse.Lyrics
+        </p>
 
-    @if (Model?.SearchReponse != null && string.IsNullOrEmpty(Model.SearchReponse.Error) == false)
-    {
-        <span class="text-danger">@Model.SearchReponse.Error</span>
+        <a href="/">Voltar</a>
     }
-}
+    else
+    {
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="mb-3">
+                <label class="form-label">Author</label>
+                <input asp-for="Author" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input asp-for="Title" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
+        }
+
+        @if (Model?.SearchReponse != null && string.IsNullOrEmpty(Model.SearchReponse.Error) == false)
+        {
+            <span class="text-danger">@Model.SearchReponse.Error</span>
+        }
+    }
+</div>
