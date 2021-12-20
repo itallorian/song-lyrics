@@ -1,4 +1,6 @@
-﻿using LYRICS.INTEGRATION.WEB.Models;
+﻿using LYRICS.INTEGRATION.DOMAIN.Factories.Interfaces;
+using LYRICS.INTEGRATION.WEB.Models;
+using LYRICS.INTEGRATION.WEB.Models.LyricsSearch;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,21 +8,38 @@ namespace LYRICS.INTEGRATION.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILyricsSearchFactory _lyricsSearchFactory;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILyricsSearchFactory lyricsSearchFactory)
         {
-            _logger = logger;
+            _lyricsSearchFactory = lyricsSearchFactory;
         }
 
+        [HttpGet]
+        [Route("/")]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        [Route("/")]
+        public async Task<IActionResult> Index([FromForm] SearchViewModel viewModel)
         {
-            return View();
+            try
+            {
+                var request = viewModel.GetSearchRequest();
+
+                var response = await _lyricsSearchFactory.ProcessSearch(request);
+
+                viewModel.GetSearchResponseViewModel(response);
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
