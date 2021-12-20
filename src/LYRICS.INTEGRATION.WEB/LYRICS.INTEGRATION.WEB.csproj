@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LYRICS.INTEGRATION.BUSINESSLOGIC\LYRICS.INTEGRATION.BUSINESSLOGIC.csproj" />
     <ProjectReference Include="..\LYRICS.INTEGRATION.DOMAIN\LYRICS.INTEGRATION.DOMAIN.csproj" />
+    <ProjectReference Include="..\LYRICS.INTEGRATION.REPOSITORY\LYRICS.INTEGRATION.REPOSITORY.csproj" />
   </ItemGroup>
 
 </Project>

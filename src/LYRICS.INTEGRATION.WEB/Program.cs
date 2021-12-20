@@ -1,7 +1,30 @@
+using LYRICS.INTEGRATION.DOMAIN.Factories;
+using LYRICS.INTEGRATION.DOMAIN.Factories.Interfaces;
+using LYRICS.INTEGRATION.DOMAIN.Services.Integration;
+using LYRICS.INTEGRATION.DOMAIN.Services.Interfaces.Integration;
+using LYRICS.INTEGRATION.DOMAIN.Services.Interfaces.LyricsOvh;
+using LYRICS.INTEGRATION.DOMAIN.Services.LyricsOvh;
+using LYRICS.INTEGRATION.REPOSITORY.Repositories.Intefaces.Integration;
+using LYRICS.INTEGRATION.REPOSITORY.Repositories.Integration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+#region [ SERVICES ]
+
+builder.Services.AddScoped<ILyricsSearchFactory, LyricsSearchFactory>();
+builder.Services.AddScoped<ILyricsSearchService, LyricsSearchService>();
+builder.Services.AddScoped<ILyricsOvhService, LyricsOvhService>();
+
+#endregion [ SERVICES ]
+
+#region [ REPOSITORIES ]
+
+builder.Services.AddScoped<ILyricsSearchRepository, LyricsSearchRepository>();
+
+#endregion [ REPOSITORIES ]
 
 var app = builder.Build();
 
