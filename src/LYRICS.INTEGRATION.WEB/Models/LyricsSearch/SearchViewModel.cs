@@ -10,7 +10,7 @@ namespace LYRICS.INTEGRATION.WEB.Models.LyricsSearch
 
         public string Title { get; set; } = null!;
 
-        public SearchResponseViewModel SearchReponse { get; set; } = new SearchResponseViewModel();
+        public SearchResponseViewModel? SearchReponse { get; set; }
 
         #region [ PARSES ]
 
@@ -23,9 +23,9 @@ namespace LYRICS.INTEGRATION.WEB.Models.LyricsSearch
             };
         }
 
-        public SearchResponseViewModel GetSearchResponseViewModel(SearchResponse response)
+        public void GetSearchResponseViewModel(SearchResponse response)
         {
-            return new SearchResponseViewModel()
+            SearchReponse = new SearchResponseViewModel()
             {
                 Lyrics = response.Lyrics,
                 Error = response.Error
