@@ -2,7 +2,7 @@
 
 namespace LYRICS.INTEGRATION.BUSINESSLOGIC.Models.LyricsOvh
 {
-    public class Search
+    public class SearchResponse
     {
         [JsonProperty("lyrics")]
         public string Lyrics { get; set; } = string.Empty;
